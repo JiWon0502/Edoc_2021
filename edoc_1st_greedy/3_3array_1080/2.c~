@@ -1,0 +1,41 @@
+#include<stdio.h>
+
+
+int main(){
+    int N, M, i,j,a,b;
+    int sign = 0;
+    char A[51][51], B[51][51];
+    scanf("%d %d", &N, &M);
+    for(i=0;i<N;i++)
+        scanf("%s", A[i]);
+    for(i=0;i<N;i++)
+        scanf("%s", B[i]);
+    for(i=0;i<N-2;i++){
+        for(j=0;j<M-2;j++){
+            if(A[i][j]==B[i][j])
+                continue;
+            else{
+                for(a=i; a<i+2;a++){
+                    for(b=j;b<j+2;b++){
+                        if(A[a][b] =='0') A[a][b]='1';
+                        else A[a][b] ='0';
+                    }
+                }
+            }
+        }
+        for(i=N-2;i<N;i++){
+            for(j=M-2;j<M;j++){
+                if(A[i][j]==B[i][j]){
+                    sign++;
+                    continue;
+                }
+                else{
+                    sign = -2;
+                    break;
+                }
+            }
+        }
+    }
+    printf("%d", sign);
+    return 0;
+}
