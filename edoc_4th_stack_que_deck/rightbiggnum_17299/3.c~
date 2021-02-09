@@ -1,0 +1,53 @@
+#include <stdio.h>
+#define MAX_SIZE 10000005
+char stack[1000005];
+int top = -1;
+
+void stack_full(){
+    printf("Stack is Full\n");
+}
+
+int stack_empty(void) {
+    printf("Stack is empty\n");
+    return -1;
+}
+
+void push(long long x) {
+    if (top >= MAX_SIZE-1) {
+        stack_full();
+        return;
+    }
+    stack[++top] = x;
+}
+
+long long pop() {
+    if (top == -1)
+        return stack_empty();
+    return stack[top--];
+}
+
+int main(){
+    int N;
+    long long A[1000005] = {0, }, ans[1000005] = {0,}, max;
+    scanf("%d", &N);
+    for (int i = 0; i<N; i++){
+        scanf("%lld", &A[i]);
+    }
+    
+    for(int j = N-1; j>=0; j--){
+        long long a;
+        while(isEmpty() != -1){
+            a = pop();
+            if(F[a]>F[A[j]]) break;
+        }
+    }
+}
+/*            if(a == -1){
+              push(A[j]);
+              ans[j]=-1;
+              }
+              else if(A[j]<a){
+                
+              }
+              else{
+              push(A[j]);*/

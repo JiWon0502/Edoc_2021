@@ -1,0 +1,22 @@
+// 스택 사용XX인 코
+#include<stdio.h>
+int F[1000001] = {0,};
+
+
+int main(){
+    int N,  A[1000001] = {0, }, ans[1000001] = {0,};
+    scanf("%d", &N);
+    for (int i = 0; i<N, i++){
+        scanf("%d", A[i]);
+        F[A[i]]++;
+    }
+    for(int j = N-1; j>=0; j--){
+        for(int k = j; k<N-1;k){
+            if(F[j] < F[k]){
+                ans[j] = A[k];
+                continue;
+            }
+            else ans[j] = -1;
+        }
+    }
+}
